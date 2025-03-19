@@ -99,6 +99,9 @@ function ProductPage() {
               <div className="font-semibold text-xl text-green-600">
                 <strong>Price: </strong>${selectedProduct.price}
               </div>
+              <div className="font-semibold text-xl text-green-600">
+                <strong>Owner: </strong>${selectedProduct.user.name}
+              </div>
             </div>
            
           </div>
