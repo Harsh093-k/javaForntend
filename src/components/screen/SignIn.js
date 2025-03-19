@@ -24,7 +24,6 @@ const SignInPage = () => {
         { headers: { "Content-Type": "application/json" } }
       );
   
-     console.log("Signin successful, response data:", response.data);
   
         localStorage.setItem("id", response.data.id);
         localStorage.setItem("email", email);
@@ -33,7 +32,7 @@ const SignInPage = () => {
         
         navigate("/"); 
        window.location.reload();
-      }
+      
     } catch (error) {
       if (error.response?.status === 409) {
         toast.error("Email is already registered!");
