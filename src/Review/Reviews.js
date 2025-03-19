@@ -10,7 +10,7 @@ const Reviews = ({ productId }) => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/reviews/product/${productId}`);
+        const response = await axios.get(`https://backendjava-omso.onrender.com/api/reviews/product/${productId}`);
         console.log(response);
         setReviews(response.data);
         setLoading(false);

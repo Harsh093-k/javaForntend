@@ -19,14 +19,14 @@ const SignInPage = () => {
   
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/users/register",
+        "https://backendjava-omso.onrender.com/api/users/register",
         { name, email, password },
         { headers: { "Content-Type": "application/json" } }
       );
   
       if (response.data && response.data.id) {
         await axios.post(
-          "http://localhost:8080/api/orders/User-email",
+          "https://backendjava-omso.onrender.com/app/api/orders/User-email",
           { email },
           { headers: { "Content-Type": "application/json" } }
         );

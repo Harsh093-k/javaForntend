@@ -27,7 +27,7 @@ function ProductPage() {
     }
   
     try {
-     const res =await axios.post("http://localhost:8080/api/orders/send-email", {
+     const res =await axios.post("https://backendjava-omso.onrender.com/api/orders/send-email", {
         email: email, 
         productName: selectedProduct.name,
         quantity,
@@ -45,7 +45,7 @@ function ProductPage() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/products/${id}`);
+        const response = await axios.get(`https://backendjava-omso.onrender.com/api/products/${id}`);
         setSelectedProduct(response.data); 
         setLoading(false);
       } catch (error) {

@@ -28,7 +28,7 @@ const ProductForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:8080/api/${userId}/add`,product);
+      const response = await axios.post(`https://backendjava-omso.onrender.com/api/${userId}/add`,product);
       console.log(response);
       console.log("Product added successfully, response data:", product);
 

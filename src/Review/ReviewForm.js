@@ -11,12 +11,12 @@ const ReviewForm = () => {
   const userId = localStorage.getItem("id");
 
   const handleSubmit = async (e) => {
-    e.preventDefault();  // Prevents the page from reloading
+    e.preventDefault();  
 
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:8080/api/reviews/create", {
+      const response = await axios.post("https://backendjava-omso.onrender.com/api/reviews/create", {
         userId,
         productId,
         rating,

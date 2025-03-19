@@ -11,7 +11,7 @@ const ProfilePage = () => {
 
     const data = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/api/users/${ID}`);
+            const response = await axios.get(`https://backendjava-omso.onrender.com/api/users/${ID}`);
             console.log(response.data.email, response.data.name);
             SetName(response.data.name); 
             SetEmail(response.data.email); 

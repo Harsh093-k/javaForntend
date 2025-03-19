@@ -16,7 +16,7 @@ const LoginPage = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/users/login",
+        "https://backendjava-omso.onrender.com/api/users/login",
         { email, password },
         { headers: { "Content-Type": "application/json" } }
       );

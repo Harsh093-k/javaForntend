@@ -16,7 +16,7 @@ const ForgotPassword = () => {
   if(password === Cpassword){
     try {
       const response = await axios.put(
-        "http://localhost:8080/api/users/update-password",
+        "https://backendjava-omso.onrender.com/api/users/update-password",
         { email, password },
         { headers: { "Content-Type": "application/json" } }
       );

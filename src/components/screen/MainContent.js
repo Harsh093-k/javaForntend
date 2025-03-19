@@ -14,7 +14,7 @@ function MainContent() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get("http://localhost:8080/api/products");
+            const response = await axios.get("https://backendjava-omso.onrender.com/api/products");
             setProducts(response.data);
             
             setLoading(false);
