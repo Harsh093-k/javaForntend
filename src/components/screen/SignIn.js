@@ -35,8 +35,9 @@ const SignInPage = () => {
         localStorage.setItem("email", email);
   
         toast.success("User registered successfully!");
-        window.location.reload();
+        
         navigate("/"); 
+         window.location.reload();
       }
     } catch (error) {
       if (error.response?.status === 409) {
