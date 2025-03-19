@@ -16,7 +16,7 @@ const SignInPage = () => {
  
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+   console.log(name,email,password);
     try {
       const response = await axios.post(
         "https://backendjava-omso.onrender.com/api/users/register",
