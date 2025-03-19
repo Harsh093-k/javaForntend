@@ -25,7 +25,7 @@ const SignInPage = () => {
       );
   
        console.log("id", response.data);
-        localStorage.setItem("id", response.data.id);
+     localStorage.setItem("id", response.data.user.id);
         localStorage.setItem("email", email);
   
         toast.success("User registered successfully!");
