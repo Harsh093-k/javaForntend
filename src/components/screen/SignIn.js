@@ -21,9 +21,9 @@ const SignInPage = () => {
       const response = await axios.post(
         "https://backendjava-omso.onrender.com/api/users/register",
         { name, email, password },
-        { headers: { "Content-Type": "application/json" } }
+        // { headers: { "Content-Type": "application/json" } }
       );
-  
+    console.log(name,email,password);
       if (response.data && response.data.id) {
         await axios.post(
           "https://backendjava-omso.onrender.com/app/api/orders/User-email",
