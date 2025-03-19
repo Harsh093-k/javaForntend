@@ -16,24 +16,23 @@ const SignInPage = () => {
  
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+   console.log(name,email,password);
     try {
       const response = await axios.post(
         "https://backendjava-omso.onrender.com/api/users/register",
         { name, email, password },
         { headers: { "Content-Type": "application/json" } }
       );
-    
+  
       
   
         localStorage.setItem("id", response.data.id);
         localStorage.setItem("email", email);
   
         toast.success("User registered successfully!");
-        
-        navigate("/"); 
         window.location.reload();
-      
+        navigate("/"); 
+   
     } catch (error) {
       if (error.response?.status === 409) {
         toast.error("Email is already registered!");

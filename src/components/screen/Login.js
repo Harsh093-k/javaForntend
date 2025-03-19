@@ -33,9 +33,12 @@ const LoginPage = () => {
   
       toast.success("Welcome back, User!");
       
+      window.location.reload();
+   
+   
    
       navigate("/");
-    window.location.reload();
+  
       
      
       
