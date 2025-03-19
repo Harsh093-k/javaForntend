@@ -24,7 +24,7 @@ const SignInPage = () => {
         { headers: { "Content-Type": "application/json" } }
       );
   
-  
+       console.log("id", response.data);
         localStorage.setItem("id", response.data.id);
         localStorage.setItem("email", email);
   
