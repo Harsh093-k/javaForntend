@@ -24,12 +24,7 @@ const SignInPage = () => {
         { headers: { "Content-Type": "application/json" } }
       );
   
-      if (response.data && response.data.id) {
-        await axios.post(
-          "https://backendjava-omso.onrender.com/app/api/orders/User-email",
-          { email },
-          { headers: { "Content-Type": "application/json" } }
-        );
+     console.log(response);
   
         localStorage.setItem("id", response.data.id);
         localStorage.setItem("email", email);
