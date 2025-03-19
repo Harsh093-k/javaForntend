@@ -78,7 +78,7 @@ function MainContent() {
     }
 
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen w-full">
         <Navbar />
         <Header />
         <main className="flex-1 p-8 ml-60 bg-gray-100">
