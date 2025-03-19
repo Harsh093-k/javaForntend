@@ -23,21 +23,17 @@ const SignInPage = () => {
         { name, email, password },
         { headers: { "Content-Type": "application/json" } }
       );
-    console.log(name,email,password);
-      if (response.data && response.data.id) {
-        await axios.post(
-          "https://backendjava-omso.onrender.com/app/api/orders/User-email",
-          { email },
-          { headers: { "Content-Type": "application/json" } }
-        );
+    
+      
   
         localStorage.setItem("id", response.data.id);
         localStorage.setItem("email", email);
   
         toast.success("User registered successfully!");
-        window.location.reload();
+        
         navigate("/"); 
-      }
+        window.location.reload();
+      
     } catch (error) {
       if (error.response?.status === 409) {
         toast.error("Email is already registered!");
