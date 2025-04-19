@@ -19,6 +19,7 @@ const SignInPage = () => {
         { name, email, password },
         { headers: { "Content-Type": "application/json" } }
       );
+<<<<<<< HEAD
 
       console.log("Signin successful, response data:", response.data);
 
@@ -28,6 +29,17 @@ const SignInPage = () => {
 
       // Show success toast
       toast.success("User registered successfully!");
+=======
+  
+       console.log("id", response.data);
+     localStorage.setItem("id", response.data.user.id);
+        localStorage.setItem("email", email);
+  
+        toast.success("User registered successfully!");
+        
+        navigate("/"); 
+       window.location.reload();
+>>>>>>> 182fd4e793cf49729d10df7fafa06aa3757f6eb4
       
       // Navigate to home page (no need to reload)
       navigate("/");

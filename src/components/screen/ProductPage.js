@@ -92,10 +92,10 @@ function ProductPage() {
               className="rounded-lg mb-4 lg:mb-0 lg:w-1/4 lg:mr-4"
             />
             <div className="text-lg text-gray-700">
-              <p className="mb-4"><strong>Overview:</strong> {selectedProduct.desc}</p>
-              <p className="mb-4"><strong>Category:</strong> {selectedProduct.category}</p>
-              <p className="mb-4"><strong>Quantity:</strong> {selectedProduct.quantity}</p>
-              <p className="mb-4"><strong>Available:</strong> {selectedProduct.available ? "Yes" : "No"}</p> 
+              <p className="mb-4"><strong>Overview:</strong> {selectedProduct?.desc}</p>
+              <p className="mb-4"><strong>Category:</strong> {selectedProduct?.category}</p>
+              <p className="mb-4"><strong>Quantity:</strong> {selectedProduct?.quantity}</p>
+              <p className="mb-4"><strong>Available:</strong> {selectedProduct?.available ? "Yes" : "No"}</p> 
               <p className="mb-4"><strong> Owner:</strong> {selectedProduct?.user?.name}</p>
               <div className="font-semibold text-xl text-green-600">
                 <strong>Price: </strong>${selectedProduct.price}
