@@ -84,7 +84,7 @@ function ProductPage() {
       <div className="ml-60">
         <div className="flex-grow p-8 bg-white w-full max-w-6xl mx-auto">
           {/* Product Details */}
-          <h2 className="text-3xl font-semibold text-gray-800 mb-4">{selectedProduct.name}</h2>
+          <h2 className="text-3xl font-semibold text-gray-800 mb-4">{selectedProduct?.name}</h2>
           <div className="flex flex-col lg:flex-row items-center">
             <img
               src={selectedProduct.img}
