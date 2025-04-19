@@ -1,38 +1,36 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
 
-
 const SignInPage = () => {
-  
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  
 
- 
   const handleSubmit = async (e) => {
     e.preventDefault();
-   console.log(name,email,password);
+    console.log(name, email, password);
     try {
       const response = await axios.post(
         "https://backendjava-omso.onrender.com/api/users/register",
         { name, email, password },
         { headers: { "Content-Type": "application/json" } }
       );
-  
+
+      console.log("Signin successful, response data:", response.data);
+
+      // Store user data in localStorage
+      localStorage.setItem("id", response.data.id);
+      localStorage.setItem("email", email);
+
+      // Show success toast
+      toast.success("User registered successfully!");
       
-  
-        localStorage.setItem("id", response.data.id);
-        localStorage.setItem("email", email);
-  
-        toast.success("User registered successfully!");
-        window.location.reload();
-        navigate("/"); 
-   
+      // Navigate to home page (no need to reload)
+      navigate("/");
     } catch (error) {
       if (error.response?.status === 409) {
         toast.error("Email is already registered!");
@@ -40,31 +38,38 @@ const SignInPage = () => {
         toast.error("Something went wrong! Try again.");
       }
     }
-  
+
+    // Clear form fields after submission
     setName("");
     setEmail("");
     setPassword("");
   };
-  
 
   return (
-    <div 
-      className="h-screen w-full flex justify-end items-center bg-cover bg-center " 
-      style={{ 
-        backgroundImage: `url(https://img.freepik.com/premium-photo/modern-automobile-classic-technology-wheel-traffic_665346-119.jpg)`
+    <div
+      className="h-screen w-full flex justify-end items-center bg-cover bg-center"
+      style={{
+        backgroundImage: `url(https://img.freepik.com/premium-photo/modern-automobile-classic-technology-wheel-traffic_665346-119.jpg)`,
       }}
     >
       <motion.div
-        className=" p-8 rounded-xl shadow-lg w-96 mr-40"
+        className="p-8 rounded-xl shadow-lg w-96 mr-40"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-3xl font-bold text-center text-blue-600 mb-6">Sign In</h2>
+        <h2 className="text-3xl font-bold text-center text-blue-600 mb-6">
+          Sign In
+        </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Name
+            </label>
             <input
               type="text"
               id="name"
@@ -77,7 +82,12 @@ const SignInPage = () => {
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Email
+            </label>
             <input
               type="email"
               id="email"
@@ -90,7 +100,12 @@ const SignInPage = () => {
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Password
+            </label>
             <input
               type="password"
               id="password"
@@ -120,7 +135,7 @@ const SignInPage = () => {
         >
           Do you have an account?{" "}
           <Link to="/Login" className="text-blue-600 hover:text-blue-700">
-            Log In 
+            Log In
           </Link>
         </motion.p>
       </motion.div>
@@ -129,4 +144,3 @@ const SignInPage = () => {
 };
 
 export default SignInPage;
-
